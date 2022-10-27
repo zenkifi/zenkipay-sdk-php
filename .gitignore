@@ -1,0 +1,9 @@
+*.lock
+composer.phar
+/vendor/
+/.vscode
+package.json
+package-lock.json
+.prettierrc
+/node_modules
+build
