@@ -21,7 +21,7 @@ final class Sdk
         $this->clientBuilder->addPlugin(new BaseUriPlugin($options->getUri()));
         $this->clientBuilder->addPlugin(
             new HeaderDefaultsPlugin([
-                'User-Agent' => 'My Custom SDK',
+                'User-Agent' => 'zenkipay-php',
                 'Content-Type' => 'application/json',
                 'Accept' => 'application/json',
             ])

@@ -26,7 +26,7 @@ final class Options
         $resolver->setDefaults([
             'client_builder' => new ClientBuilder(),
             'uri_factory' => Psr17FactoryDiscovery::findUriFactory(),
-            'uri' => 'https://jsonplaceholder.typicode.com',
+            'uri' => 'https://api.zenki.fi',
         ]);
 
         $resolver->setAllowedTypes('uri', 'string');

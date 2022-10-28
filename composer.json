@@ -18,6 +18,9 @@
         }
     },
     "autoload-dev": {
+        "classmap": [
+            "tests/"
+        ],
         "psr-4": {
             "Zenkipay\\Tests\\": "tests/"
         }
@@ -28,6 +31,9 @@
             "email": "federico.balderas@zenki.fi"
         }
     ],
+    "config": {
+        "sort-packages": true
+    },
     "require": {
         "psr/http-factory": "^1.0",
         "psr/http-client": "^1.0",

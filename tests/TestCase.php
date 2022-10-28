@@ -25,6 +25,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
         return new Sdk(
             new Options([
                 'client_builder' => new ClientBuilder($this->mockClient),
+                'uri' => 'https://jsonplaceholder.typicode.com',
             ])
         );
     }
