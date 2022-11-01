@@ -20,4 +20,9 @@ final class Todos
     {
         return ResponseMediator::getContent($this->sdk->getHttpClient()->get('/todos'));
     }
+
+    public function retrieve(string $id): object
+    {
+        return ResponseMediator::getContent($this->sdk->getHttpClient()->get('/todos/' . $id));
+    }
 }

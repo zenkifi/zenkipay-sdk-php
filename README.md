@@ -1,7 +1,6 @@
 # Zenkipay SDK for PHP
 
-[![Latest Stable Version](https://poser.pugx.org/zenkifi/zenkipay-sdk-php/v/stable)](https://packagist.org/packages/zenki/zenkipay)
-[![Total Downloads](https://poser.pugx.org/zenkifi/zenkipay-sdk-php/downloads)](https://packagist.org/packages/zenki/zenkipay)
+[![Latest Stable Version](http://poser.pugx.org/zenki/zenkipay/v)](https://packagist.org/packages/zenki/zenkipay) [![Total Downloads](http://poser.pugx.org/zenki/zenkipay/downloads)](https://packagist.org/packages/zenki/zenkipay) [![License](http://poser.pugx.org/zenki/zenkipay/license)](https://packagist.org/packages/zenki/zenkipay) [![PHP Version Require](http://poser.pugx.org/zenki/zenkipay/require/php)](https://packagist.org/packages/zenki/zenkipay)
 
 The Zenkipay SDK for PHP provides convenient access to the Zenkipay API from applications written in the PHP language.
 
@@ -11,15 +10,30 @@ The Zenkipay SDK for PHP provides convenient access to the Zenkipay API from app
 -   A [PSR-17 implementation](https://packagist.org/providers/psr/http-factory-implementation)
 -   A [PSR-18 implementation](https://packagist.org/providers/psr/http-client-implementation)
 
-## Quick install
+## Getting started
 
-Via [Composer](https://getcomposer.org).
+### Install
+
+To install the SDK you will need to be using [Composer]([https://getcomposer.org/) in your project. To install it please see the [docs](https://getcomposer.org/download/).
+
+This is our "core" SDK, meaning that all the important code regarding error handling lives here.
+If you are happy with using the HTTP client we recommend install the SDK like: [`sentry/sdk`](https://github.com/getsentry/sentry-php-sdk)
+
+```bash
+composer require zenki/zenkipay
+```
+
+This package (`zenki/zenkipay`) is not tied to any specific library that sends HTTP messages. Instead, it uses [Httplug](https://github.com/php-http/httplug) to let users choose whichever PSR-7 implementation and HTTP client they want to use.
 
 If you just want to get started quickly you should run the following command:
 
 ```bash
 composer require zenki/zenkipay php-http/curl-client
 ```
+
+This is basically what our metapackage (`sentry/sdk`) provides.
+
+This will install the library itself along with an HTTP client adapter that uses cURL as transport method (provided by Httplug). You do not have to use those packages if you do not want to. The SDK does not care about which transport method you want to use because it's an implementation detail of your application. You may use any package that provides [`php-http/async-client-implementation`](https://packagist.org/providers/php-http/async-client-implementation) and [`http-message-implementation`](https://packagist.org/providers/psr/http-message-implementation).
 
 ## License
 

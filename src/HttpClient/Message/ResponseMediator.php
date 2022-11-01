@@ -8,8 +8,8 @@ use Psr\Http\Message\ResponseInterface;
 
 final class ResponseMediator
 {
-    public static function getContent(ResponseInterface $response): array
+    public static function getContent(ResponseInterface $response): mixed
     {
-        return json_decode($response->getBody()->getContents(), true);
+        return json_decode($response->getBody()->getContents());
     }
 }
