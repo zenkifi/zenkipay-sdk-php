@@ -16,13 +16,6 @@ The Zenkipay SDK for PHP provides convenient access to the Zenkipay API from app
 
 To install the SDK you will need to be using [Composer]([https://getcomposer.org/) in your project. To install it please see the [docs](https://getcomposer.org/download/).
 
-This is our "core" SDK, meaning that all the important code regarding error handling lives here.
-If you are happy with using the HTTP client we recommend install the SDK like: [`sentry/sdk`](https://github.com/getsentry/sentry-php-sdk)
-
-```bash
-composer require zenki/zenkipay
-```
-
 This package (`zenki/zenkipay`) is not tied to any specific library that sends HTTP messages. Instead, it uses [Httplug](https://github.com/php-http/httplug) to let users choose whichever PSR-7 implementation and HTTP client they want to use.
 
 If you just want to get started quickly you should run the following command:
