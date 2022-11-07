@@ -8,10 +8,10 @@ use Exception;
 
 final class Security
 {
-
     private string $rsa_private_key;
 
-    public function __construct(string $plain_rsa_private_key) {
+    public function __construct(string $plain_rsa_private_key)
+    {
         if (!$this->validateRSAPrivateKey($plain_rsa_private_key)) {
             throw new Exception('Invalid RSA private key has been provided');
         }
@@ -81,7 +81,7 @@ final class Security
 
         while ($offset < strlen($encrypted_msg)) {
             $decrypted_chunk = '';
-            $chunk = substr($encrypted_msg, $offset, (int)$chunk_size);
+            $chunk = substr($encrypted_msg, $offset, (int) $chunk_size);
 
             if (openssl_private_decrypt($chunk, $decrypted_chunk, $ppk)) {
                 $decrypted .= $decrypted_chunk;

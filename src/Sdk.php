@@ -6,6 +6,7 @@ namespace Zenkipay;
 
 use Zenkipay\Auth;
 use Zenkipay\Endpoint\Todos;
+use Zenkipay\Endpoint\Orders;
 use Zenkipay\Endpoint\Disputes;
 use Zenkipay\Endpoint\TrackingNumbers;
 use Http\Client\Common\HttpMethodsClientInterface;
@@ -15,13 +16,13 @@ use Http\Client\Common\Plugin\HeaderDefaultsPlugin;
 final class Sdk
 {
     private ClientBuilder $clientBuilder;
-    private string $public_key;
-    private string $private_key;
+    private string $client_id;
+    private string $client_secret;
 
-    public function __construct(string $public_key, string $private_key, Options $options = null)
+    public function __construct(string $client_id, string $client_secret, Options $options = null)
     {
-        $this->public_key = $public_key;
-        $this->private_key = $private_key;
+        $this->client_id = $client_id;
+        $this->client_secret = $client_secret;
         $options = $options ?? new Options();
         $access_token = $this->getAccessToken();
 
@@ -42,19 +43,9 @@ final class Sdk
         return $this->clientBuilder->getHttpClient();
     }
 
-    public function getPublicKey(): string
-    {
-        return $this->public_key;
-    }
-
-    public function getPrivateKey(): string
-    {
-        return $this->private_key;
-    }
-
     public function getAccessToken(): string
     {
-        $access_token = Auth::getAccessToken($this->public_key);
+        $access_token = Auth::getAccessToken($this->client_id, $this->client_secret);
         return $access_token['access_token'];
     }
 
@@ -71,5 +62,10 @@ final class Sdk
     public function trackingNumbers(): TrackingNumbers
     {
         return new Endpoint\TrackingNumbers($this);
+    }
+
+    public function orders(): Orders
+    {
+        return new Endpoint\Orders($this);
     }
 }

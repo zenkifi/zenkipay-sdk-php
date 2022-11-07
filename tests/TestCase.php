@@ -22,7 +22,12 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
 
     protected function givenSdk(): Sdk
     {
+        $client_id = 'xxx';
+        $client_secret = 'xxx';
+
         return new Sdk(
+            $client_id,
+            $client_secret,
             new Options([
                 'client_builder' => new ClientBuilder($this->mockClient),
                 'uri' => 'https://jsonplaceholder.typicode.com',
