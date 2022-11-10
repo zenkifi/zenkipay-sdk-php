@@ -7,7 +7,7 @@ namespace Zenkipay\Endpoint;
 use Zenkipay\HttpClient\Message\ResponseMediator;
 use Zenkipay\Sdk;
 
-final class Disputes
+final class Refunds
 {
     private Sdk $sdk;
 
@@ -16,8 +16,8 @@ final class Disputes
         $this->sdk = $sdk;
     }
 
-    public function create(array $data): object
+    public function create(string $order_id, array $data): object
     {
-        return ResponseMediator::getContent($this->sdk->getHttpClient()->post('/v1/api/disputes', [], $data));
+        return ResponseMediator::getContent($this->sdk->getHttpClient()->post('/v1/pay/orders/' . $order_id . '/refunds', [], $data));
     }
 }

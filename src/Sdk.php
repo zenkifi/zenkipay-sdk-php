@@ -7,8 +7,9 @@ namespace Zenkipay;
 use Zenkipay\Auth;
 use Zenkipay\Endpoint\Todos;
 use Zenkipay\Endpoint\Orders;
-use Zenkipay\Endpoint\Disputes;
+use Zenkipay\Endpoint\Refunds;
 use Zenkipay\Endpoint\TrackingNumbers;
+use Zenkipay\Endpoint\Merchants;
 use Http\Client\Common\HttpMethodsClientInterface;
 use Http\Client\Common\Plugin\BaseUriPlugin;
 use Http\Client\Common\Plugin\HeaderDefaultsPlugin;
@@ -54,9 +55,9 @@ final class Sdk
         return new Endpoint\Todos($this);
     }
 
-    public function disputes(): Disputes
+    public function refunds(): Refunds
     {
-        return new Endpoint\Disputes($this);
+        return new Endpoint\Refunds($this);
     }
 
     public function trackingNumbers(): TrackingNumbers
@@ -67,5 +68,10 @@ final class Sdk
     public function orders(): Orders
     {
         return new Endpoint\Orders($this);
+    }
+
+    public function merchants(): Merchants
+    {
+        return new Endpoint\Merchants($this);
     }
 }
