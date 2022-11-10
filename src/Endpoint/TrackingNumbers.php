@@ -16,8 +16,8 @@ final class TrackingNumbers
         $this->sdk = $sdk;
     }
 
-    public function create(array $data): object
+    public function create(string $order_id, array $data): object
     {
-        return ResponseMediator::getContent($this->sdk->getHttpClient()->post('/v1/api/tracking', [], $data));
+        return ResponseMediator::getContent($this->sdk->getHttpClient()->post('/v1/pay/orders/' . $order_id . '/tracking', [], $data));
     }
 }

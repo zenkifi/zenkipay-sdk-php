@@ -18,7 +18,6 @@ final class Orders
 
     public function create(array $data): object
     {
-        $data['orderPlacedAt'] = time();
-        return ResponseMediator::getContent($this->sdk->getHttpClient()->post('/v1/orders', [], $data));
+        return ResponseMediator::getContent($this->sdk->getHttpClient()->post('/v1/pay/orders', [], $data));
     }
 }
