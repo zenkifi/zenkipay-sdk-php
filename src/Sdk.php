@@ -9,6 +9,7 @@ use Zenkipay\Endpoint\Todos;
 use Zenkipay\Endpoint\Orders;
 use Zenkipay\Endpoint\Refunds;
 use Zenkipay\Endpoint\TrackingNumbers;
+use Zenkipay\Endpoint\Merchants;
 use Http\Client\Common\HttpMethodsClientInterface;
 use Http\Client\Common\Plugin\BaseUriPlugin;
 use Http\Client\Common\Plugin\HeaderDefaultsPlugin;
@@ -67,5 +68,10 @@ final class Sdk
     public function orders(): Orders
     {
         return new Endpoint\Orders($this);
+    }
+
+    public function merchants(): Merchants
+    {
+        return new Endpoint\Merchants($this);
     }
 }
