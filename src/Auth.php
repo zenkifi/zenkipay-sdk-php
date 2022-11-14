@@ -8,7 +8,7 @@ use Exception;
 
 final class Auth
 {
-    public const API_URL = 'https://dev-auth.zenki.fi';
+    public const API_URL = 'https://dev-api.zenki.fi';
 
     /**
      * Get Zenkipay's access token
@@ -17,7 +17,7 @@ final class Auth
      */
     public static function getAccessToken(string $client_id, string $client_secret): array
     {
-        $url = self::API_URL . '/auth/realms/pbw-local/protocol/openid-connect/token';
+        $url = self::API_URL . '/v1/oauth/tokens';
         $data = http_build_query([
             'client_id' => $client_id,
             'client_secret' => $client_secret,
