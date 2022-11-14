@@ -8,7 +8,7 @@ use Exception;
 
 final class Auth
 {
-    public const API_URL = 'https://dev-api.zenki.fi';
+    public const API_URL = 'https://api.zenki.fi';
 
     /**
      * Get Zenkipay's access token
