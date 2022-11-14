@@ -6,7 +6,7 @@ The Zenkipay SDK for PHP provides convenient access to the Zenkipay API from app
 
 ## Requirements
 
--   PHP >= 7.2
+-   PHP >= 7.4
 -   A [PSR-17 implementation](https://packagist.org/providers/psr/http-factory-implementation)
 -   A [PSR-18 implementation](https://packagist.org/providers/psr/http-client-implementation)
 
