@@ -18,6 +18,6 @@ final class Orders
 
     public function create(array $data): object
     {
-        return ResponseMediator::getContent($this->sdk->getHttpClient()->post('/v1/pay/orders', [], $data));
+        return ResponseMediator::getContent($this->sdk->getHttpClient()->post('/v1/pay/orders', [], json_encode($data)));
     }
 }
