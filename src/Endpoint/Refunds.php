@@ -18,6 +18,6 @@ final class Refunds
 
     public function create(string $order_id, array $data): object
     {
-        return ResponseMediator::getContent($this->sdk->getHttpClient()->post('/v1/pay/orders/' . $order_id . '/refunds', [], $data));
+        return ResponseMediator::getContent($this->sdk->getHttpClient()->post('/v1/pay/orders/' . $order_id . '/refunds', [], json_encode($data)));
     }
 }
