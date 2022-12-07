@@ -20,4 +20,9 @@ final class Orders
     {
         return ResponseMediator::getContent($this->sdk->getHttpClient()->post('/v1/pay/orders', [], json_encode($data)));
     }
+
+    public function update(string $order_id, array $data): object
+    {
+        return ResponseMediator::getContent($this->sdk->getHttpClient()->patch('/v1/pay/orders/' . $order_id, [], json_encode($data)));
+    }
 }

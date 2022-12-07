@@ -18,19 +18,17 @@ final class Auth
     public static function getAccessToken(string $client_id, string $client_secret): array
     {
         $url = self::API_URL . '/v1/oauth/tokens';
-        $data = http_build_query([
-            'client_id' => $client_id,
-            'client_secret' => $client_secret,
-            'grant_type' => 'client_credentials',
-        ]);
+        $credentials = ['clientId' => $client_id, 'clientSecret' => $client_secret, 'grantType' => 'client_credentials'];
+        $headers = ['Accept: application/json', 'Content-Type: application/json'];
 
         $ch = curl_init();
         curl_setopt_array($ch, [
             CURLOPT_URL => $url,
+            CURLOPT_HTTPHEADER => $headers,
             CURLOPT_RETURNTRANSFER => true, // return the transfer as a string of the return value
-            CURLOPT_TIMEOUT => 0, // The maximum number of seconds to allow cURL functions to execute.
+            CURLOPT_TIMEOUT => 30, // The maximum number of seconds to allow cURL functions to execute.
             CURLOPT_POST => true, // This line must place before CURLOPT_POSTFIELDS
-            CURLOPT_POSTFIELDS => $data, // Data that will send
+            CURLOPT_POSTFIELDS => json_encode($credentials), // Data that will send
         ]);
 
         $result = curl_exec($ch);

@@ -47,7 +47,7 @@ final class Sdk
     public function getAccessToken(): string
     {
         $access_token = Auth::getAccessToken($this->client_id, $this->client_secret);
-        return $access_token['access_token'];
+        return $access_token['accessToken'];
     }
 
     public function todos(): Todos
