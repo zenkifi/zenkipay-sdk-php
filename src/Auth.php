@@ -20,6 +20,7 @@ final class Auth
         $url = self::API_URL . '/v1/oauth/tokens';
         $credentials = ['clientId' => $client_id, 'clientSecret' => $client_secret, 'grantType' => 'client_credentials'];
         $headers = ['Accept: application/json', 'Content-Type: application/json'];
+        $agent = 'Zenkipay-SDK/1.0';
 
         $ch = curl_init();
         curl_setopt_array($ch, [
@@ -27,7 +28,8 @@ final class Auth
             CURLOPT_HTTPHEADER => $headers,
             CURLOPT_RETURNTRANSFER => true, // return the transfer as a string of the return value
             CURLOPT_TIMEOUT => 30, // The maximum number of seconds to allow cURL functions to execute.
-            CURLOPT_POST => true, // This line must place before CURLOPT_POSTFIELDS
+            CURLOPT_USERAGENT => $agent,
+            CURLOPT_CUSTOMREQUEST => 'POST',
             CURLOPT_POSTFIELDS => json_encode($credentials), // Data that will send
         ]);
 

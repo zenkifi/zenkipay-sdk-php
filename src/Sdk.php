@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Zenkipay;
 
 use Zenkipay\Auth;
-use Zenkipay\Endpoint\Todos;
 use Zenkipay\Endpoint\Orders;
 use Zenkipay\Endpoint\Refunds;
 use Zenkipay\Endpoint\TrackingNumbers;
@@ -48,11 +47,6 @@ final class Sdk
     {
         $access_token = Auth::getAccessToken($this->client_id, $this->client_secret);
         return $access_token['accessToken'];
-    }
-
-    public function todos(): Todos
-    {
-        return new Endpoint\Todos($this);
     }
 
     public function refunds(): Refunds
