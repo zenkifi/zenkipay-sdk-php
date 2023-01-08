@@ -41,7 +41,7 @@
         "php-http/client-common": "^2.6",
         "php-http/discovery": "^1.14",
         "psr/http-client-implementation": "^1.0",
-        "symfony/options-resolver": "^6.2"
+        "symfony/options-resolver": "^5.4|^6.2"
     },
     "require-dev": {
         "php-http/curl-client": "^2.2",
