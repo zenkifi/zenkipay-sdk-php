@@ -16,6 +16,11 @@ final class Orders
         $this->sdk = $sdk;
     }
 
+    public function find(string $order_id): object
+    {
+        return ResponseMediator::getContent($this->sdk->getHttpClient()->get('/v1/pay/orders/' . $order_id));
+    }
+
     public function create(array $data): object
     {
         return ResponseMediator::getContent($this->sdk->getHttpClient()->post('/v1/pay/orders', [], json_encode($data)));
